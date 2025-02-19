@@ -1,0 +1,281 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Warcaby";
+}
+
+
+
+<h1 class= "center">
+    Warcaby</h1>
+
+<h2 id="current-player">Tura gracza: Czerwony</h2>
+<div id="login-container" style="display: block; text-align: center;">
+    <h2>Logowanie</h2>
+    <form id="login-form">
+        <label for="player-name">Nick:</label>
+        <input type="text" id="player-name" required><br>
+        <label for="player-password">Hasło:</label>
+        <input type="password" id="player-password" required><br>
+        <button type="submit">Zaloguj się</button>
+    </form>
+    <p id="login-error" style="color: red; display: none;">Nieprawidłowy Nick lub hasło.</p>
+</div>
+
+
+<div id="ColorSelection">
+    <button id="choose-red">Wybierz czerwony</button>
+    <button id="choose-blue">Wybierz niebieski</button>
+</div>
+
+<p id="player-color"></p>
+
+
+<div id="chessboard" style="display: grid; grid-template-columns: repeat(8, 50px); width: 400px; margin: auto;"></div>
+
+<div id="game-over-modal" class="modal">
+    <div class="modal-content">
+        <h2>Gra zakończona!</h2>
+        <p id="winner-message"></p>
+        <button id="close-modal">Zamknij</button>
+        <button id="reset-game-end">Zrestartuj grę</button>
+    </div>
+</div>
+
+
+<script src="~/lib/signalr/signalr.min.js"></script>
+<script>
+    const playerId = localStorage.getItem("playerId");
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl(`/gameHub?playerId=${playerId || ""}`)
+        .withAutomaticReconnect()
+        .build();
+
+
+    connection.onreconnecting(() => {
+        console.warn("Utracono połączenie z serwerem. Próba ponownego połączenia...");
+    });
+
+    connection.onreconnected(() => {
+        console.log("Połączenie z serwerem zostało przywrócone.");
+        // Możesz tu zażądać ponownego przesłania stanu gry
+        connection.invoke("RequestGameState");
+    });
+        connection.onclose((error) => {
+        console.error("Połączenie zostało zamknięte:", error);
+        alert("Połączenie z serwerem zostało przerwane. Odśwież stronę, aby spróbować ponownie.");
+    });
+
+     setInterval(() => {
+        connection.invoke("Ping").catch(err => console.error("Błąd podczas pingowania serwera:", err));
+    }, 30); // Co 30 sekund
+
+
+    let selectedCell = null;
+
+     connection.on("UpdateBoard", (board) => {
+            const chessboard = document.getElementById("chessboard");
+            chessboard.innerHTML = "";
+            for (let row = 0; row < 8; row++) {
+                for (let col = 0; col < 8; col++) {
+                    const cell = document.createElement("div");
+                    cell.id = `cell-${row}-${col}`;
+                    cell.classList.add("cell", (row + col) % 2 === 1 ? "dark" : "light");
+
+                    if (board[row][col]) {
+                        const piece = document.createElement("div");
+                        piece.classList.add("piece", board[row][col].includes("red") ? "red" : "blue");
+                        if (board[row][col].includes("king")) {
+                            piece.classList.add("king");
+                        }
+                        cell.appendChild(piece);
+                    }
+
+                    cell.addEventListener("click", () => handleCellClick(row, col));
+                    chessboard.appendChild(cell);
+                }
+            }
+        });
+
+    connection.on("UpdateCurrentPlayer", (player) => {
+        document.getElementById("current-player").innerText = `Tura gracza: ${player === "red" ? "Czerwony" : "Niebieski"}`;
+    });
+
+    connection.on("InvalidMove", () => {
+        alert("Nieprawidłowy ruch!");
+    });
+
+    function handleCellClick(row, col) {
+        if (selectedCell) {
+            const [fromRow, fromCol] = selectedCell.id.split("-").slice(1).map(Number);
+            connection.invoke("MakeMove", fromRow, fromCol, row, col);
+            resetHighlights();
+            selectedCell.classList.remove("selected-cell");
+            selectedCell = null;
+        } else {
+            selectedCell = document.getElementById(`cell-${row}-${col}`);
+            selectedCell.classList.add("selected-cell");
+            highlightValidMoves(row, col);
+        }
+    }
+
+    function highlightValidMoves(row, col) 
+    {
+        connection.invoke("GetValidMoves", row, col).then((moves) => {
+            console.log(moves);  // Sprawdzenie struktury danych
+            moves.forEach(([toRow, toCol]) => {
+                const cell = document.getElementById(`cell-${toRow}-${toCol}`);
+                cell.classList.add("highlighted-move");
+            });
+        }).catch(err => console.error(err));
+    }
+
+    function resetHighlights() {
+        const highlightedCells = document.querySelectorAll('.highlighted-move');
+    highlightedCells.forEach(cell => {
+        cell.classList.remove('highlighted-move');
+    });
+    }
+
+        document.getElementById("choose-red").addEventListener("click", () => {
+        connection.invoke("ChooseColor", "red");
+    });
+
+    document.getElementById("choose-blue").addEventListener("click", () => {
+        connection.invoke("ChooseColor", "blue");
+    });
+
+    connection.on("ColorAssigned", (color) => {
+        document.getElementById("player-color").innerText = `Wybrano kolor: ${color === "red" ? "Czerwony" : "Niebieski"}`;
+        document.getElementById("ColorSelection").style.display = "none";
+    });
+
+    connection.on("ColorAlreadyTaken", () => {
+        alert("Ten kolor został już wybrany przez innego gracza.");
+    });
+
+    connection.on("NoColorSelected", () => {
+        alert("Najpierw wybierz kolor!");
+    });
+    
+    
+    connection.on("GameOver", (winner) => {
+
+        const winnerMessage = document.getElementById("winner-message");
+        winnerMessage.innerText = `Zwycięzca: ${winner === "red" ? "Czerwony" : "Niebieski"}`;
+
+        const modal = document.getElementById("game-over-modal");
+        modal.style.display = "block";
+
+        document.getElementById("chessboard").style.pointerEvents = "none";
+    });
+
+    document.getElementById("close-modal").addEventListener("click", () => {
+        const modal = document.getElementById("game-over-modal");
+        modal.style.display = "none";
+
+      
+        document.getElementById("chessboard").style.pointerEvents = "auto";
+    });
+
+    document.getElementById("reset-game-end").addEventListener("click", () => {
+        connection.invoke("RestartGame")
+            .then(() => {
+                const modal = document.getElementById("game-over-modal");
+                modal.style.display = "none"; 
+                document.getElementById("chessboard").style.pointerEvents = "auto"; 
+                document.getElementById("ColorSelection").style.display = "block"; 
+                document.getElementById("player-color").innerText = ""; 
+            })
+            .catch(err => console.error("Błąd przy resetowaniu gry:", err));
+    });
+
+
+        connection.on("ColorSelectionReset", () => {
+        document.getElementById("ColorSelection").style.display = "block"; 
+        document.getElementById("player-color").innerText = ""; 
+    });
+
+
+           document.getElementById("login-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const playerName = document.getElementById("player-name").value;
+        const playerPassword = document.getElementById("player-password").value;
+
+        try {
+            await connection.invoke("Login", playerName, playerPassword);
+        } catch (err) {
+            console.error("Błąd logowania:", err);
+        }
+    });
+
+       connection.on("LoginResult", (result) => {
+        if (result.success) {
+            localStorage.setItem("playerId", result.playerId); 
+            alert("Zalogowano pomyślnie.");
+        } else {
+            alert("Logowanie nie powiodło się: " + result.reason);
+        }
+    });
+
+
+
+    connection.on("LoginSuccess", (success) => {
+        if (success) {
+            document.getElementById("login-container").style.display = "none"; 
+            document.getElementById("ColorSelection").style.display = "block"; 
+        } else {
+            document.getElementById("login-error").style.display = "block"; 
+        }
+    });
+
+       
+    connection.on("UpdateLoggedInUsers", (loggedInUsers) => {
+        const userListContainer = document.getElementById("logged-in-users");
+        userListContainer.innerHTML = ""; 
+
+        loggedInUsers.forEach((user) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = user;
+            userListContainer.appendChild(listItem);
+        });
+    });
+
+
+
+     connection.on("ColorReleased", (color) => {
+     alert(`Kolor ${color === "red" ? "Czerwony" : "Niebieski"} został zwolniony.`);
+     
+     document.getElementById("ColorSelection").style.display = "block";
+    });
+
+        connection.on("PlayerColors", (playerColors) => {
+       
+        const connectionId = connection.connectionId;
+        if (playerColors[connectionId]) {
+            const color = playerColors[connectionId];
+            document.getElementById("player-color").innerText = `Twój kolor: ${color === "red" ? "Czerwony" : "Niebieski"}`;
+            document.getElementById("ColorSelection").style.display = "none";
+        } else {
+            document.getElementById("ColorSelection").style.display = "block";
+        }
+    });
+
+
+        connection.on("GameOver", (winner) => {
+        const winnerMessage = document.getElementById("winner-message");
+        winnerMessage.innerText = `Zwycięzca: ${winner === "red" ? "Czerwony" : "Niebieski"}`;
+
+        const modal = document.getElementById("game-over-modal");
+        modal.style.display = "block";
+        document.getElementById("chessboard").style.pointerEvents = "none";
+    });
+
+
+
+    connection.start().then(() => {
+        connection.invoke("GetBoard");
+        
+    }).catch(err => console.error(err));
+</script>

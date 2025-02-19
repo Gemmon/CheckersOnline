@@ -1,0 +1,63 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Players and Games List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>Players</h2>
+@if (Model.Players != null && Model.Players.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Model.Players)
+            {
+                <tr>
+                    <td>@player.Id</td>
+                    <td>@player.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No players found.</p>
+}
+
+<h2>Games</h2>
+@if (Model.Games != null && Model.Games.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Game ID</th>
+                <th>Czerwony</th>
+                <th>Niebieski</th>
+                <th>Kolor Wygranego</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var game in Model.Games)
+            {
+                <tr>
+                    <td>@game.Id</td>
+                    <td>@game.Player1name</td>
+                    <td>@game.Player2name</td>
+                    <td>@game.Wynik</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No games found.</p>
+}

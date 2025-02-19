@@ -1,0 +1,197 @@
+/* Stylizacja globalna */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: #9f9f9f; 
+    color: #333; 
+}
+
+.navbar {
+    background-color: #4CAF50; 
+}
+
+.navbar-brand, .nav-link {
+    color: white; 
+}
+
+    .navbar-brand:hover, .nav-link:hover {
+        color: #ddd; 
+    }
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+
+h1, h2 {
+    margin: 10px 0;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+
+#chessboard {
+    display: grid;
+    caret-color: transparent;
+    grid-template-columns: repeat(8, 50px);
+    gap: 0;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    border: 2px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cell {
+    caret-color: transparent;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background: linear-gradient(145deg, #d7d7d7, #ffffff);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+    .cell.dark {
+        background: linear-gradient(145deg, #555, #333);
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+
+.black-cell {
+    background-color: black;
+}
+
+.white-cell {
+    background-color: white;
+}
+
+.highlighted-move {
+    border: 2px solid yellow;
+}
+
+.selected-cell {
+    border: 2px solid #4ca025;
+}
+
+.piece {
+    outline: none;
+    caret-color: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background: radial-gradient(circle, #b30000, #ea0606);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+    border: 2.5px solid #d7a32e;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10; 
+    transform-origin: center; 
+}
+
+    .piece.blue {
+        background: radial-gradient(circle, #116ff0, #225fff); 
+        border: 2.5px solid #a98700;
+    }
+
+    .piece.king {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 0 15px gold; 
+        border: 4px solid gold;
+    }
+
+    .piece:hover {
+        transform: translate(-50%, -50%) scale(1.15); 
+    }
+
+
+#ColorSelection button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#choose-red {
+    background-color: red;
+    color: white;
+}
+
+#choose-blue {
+    background-color: blue;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 50%;
+    text-align: center;
+}
+
+    .modal-content button {
+        margin: 10px;
+    }
+
+
+    
+    .modal-content button {
+        background-color: #bf822c;
+        color: white;
+        border: none;
+        height: 40px;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+        .modal-content button:hover {
+            background-color: darkred;
+        }

@@ -1,0 +1,157 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\hubs\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\hubs\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\services\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\services\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\services\\igameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\services\\igameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\models\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|c:\\users\\gekko\\desktop\\cloud\\uczelnia\\rok3\\dotnet\\checkerslonefinal\\checkerslone\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{017C86C3-F0A6-4B86-9669-2993F53DB123}|CheckersLone\\CheckersLone.csproj|solutionrelative:checkerslone\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Models\\Game.cs",
+              "RelativeDocumentMoniker": "CheckersLone\\Models\\Game.cs",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Models\\Game.cs",
+              "RelativeToolTip": "CheckersLone\\Models\\Game.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T15:44:13.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "CheckersLone\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "CheckersLone\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T15:41:09.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IGameService.cs",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Services\\IGameService.cs",
+              "RelativeDocumentMoniker": "CheckersLone\\Services\\IGameService.cs",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Services\\IGameService.cs",
+              "RelativeToolTip": "CheckersLone\\Services\\IGameService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T15:29:05.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameHub.cs",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Hubs\\GameHub.cs",
+              "RelativeDocumentMoniker": "CheckersLone\\Hubs\\GameHub.cs",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Hubs\\GameHub.cs",
+              "RelativeToolTip": "CheckersLone\\Hubs\\GameHub.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T12:43:53.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Models\\Player.cs",
+              "RelativeDocumentMoniker": "CheckersLone\\Models\\Player.cs",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Models\\Player.cs",
+              "RelativeToolTip": "CheckersLone\\Models\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T18:01:12.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Program.cs",
+              "RelativeDocumentMoniker": "CheckersLone\\Program.cs",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Program.cs",
+              "RelativeToolTip": "CheckersLone\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T11:37:35.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameService.cs",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Services\\GameService.cs",
+              "RelativeDocumentMoniker": "CheckersLone\\Services\\GameService.cs",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Services\\GameService.cs",
+              "RelativeToolTip": "CheckersLone\\Services\\GameService.cs",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAkwEcBAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T18:03:19.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "CheckersLone\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Gekko\\Desktop\\cloud\\uczelnia\\rok3\\DotNet\\CheckersLoneFinal\\CheckersLone\\Pages\\Index.cshtml",
+              "RelativeToolTip": "CheckersLone\\Pages\\Index.cshtml",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAAAP0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-12T11:39:37.032Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

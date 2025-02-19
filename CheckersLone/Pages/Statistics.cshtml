@@ -1,0 +1,58 @@
+﻿@page
+@model CheckersLone.Pages.StatisticsModel
+@{
+    ViewData["Title"] = "Statystyki";
+    var backgroundGradient = Model.BackgroundGradient;
+    Console.WriteLine($"Background Gradient: {backgroundGradient}");
+}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+</head>
+<body style="background: @backgroundGradient !important; color: white">
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <h2>Ogólne Statystyki</h2>
+        <p>Czerwony: @Model.RedWins</p>
+        <p>Niebieski: @Model.BlueWins</p>
+        <h2>Procent wygranych</h2>
+        <p>Czerwony: @Model.RedWinPercentage %</p>
+        <p>Niebieski: @Model.BlueWinPercentage %</p>
+
+
+        <h2>Historia Meczów</h2>
+        @if (Model.GameStats != null && Model.GameStats.Count > 0)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Kolor Zwycięzcy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var stats in Model.GameStats)
+                    {
+                        <tr>
+                            <td>@stats.Date.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                            <td>@stats.Color</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No game stats found.</p>
+        }
+    </div>
+
+
+</body>
+</html>
